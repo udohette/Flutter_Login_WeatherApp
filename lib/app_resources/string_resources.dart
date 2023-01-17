@@ -18,5 +18,11 @@ class AppString{
   static const register_new_user = 'Register';
   static const dont_have_account =  'Don\'t have an account?';
   static const already_have_account =  'Already have an account?';
+  static const permission_denied_forever =  'Location permissions are permanently denied, we cannot request permissions.';
+  static const location_service_not_enabled =  'Location Service are not Enabled';
+
+
+
+  static const double  errorCode = 200;
 
 }

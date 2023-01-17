@@ -56,7 +56,7 @@ class _WeatherState extends State<Weather> {
 
       http.Response response = await http.get(Uri.parse('$weatherApiUrl?lat=$latitude&lon=$longitude&appid=$apiKey'));
       print('$weatherApiUrl?lat=$latitude&lon=$longitude&$apiKey');
-      if(response.statusCode == 200){
+      if(response.statusCode == AppString.errorCode){
         String data = response.body;
         double  temp = jsonDecode(data)['main']['temp'];
         double feels_temp = jsonDecode(data)['main']['feels_like'];
@@ -116,13 +116,13 @@ class _WeatherState extends State<Weather> {
                 ],
                 ),
               ),
-              Padding(padding: EdgeInsets.all(15.0),
+              Padding(padding: EdgeInsets.all(AppSize.s14),
               child: Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   color: AppColor.white.withOpacity(.3),
-                  borderRadius: BorderRadius.circular(20.0)
+                  borderRadius: BorderRadius.circular(AppSize.s20)
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

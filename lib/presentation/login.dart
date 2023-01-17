@@ -71,7 +71,7 @@ class _LoginState extends State<Login> {
       // Location services are not enabled don't continue
       // accessing the position and request users of the
       // App to enable the location services.
-      return Future.error("Location Service are not Enabled");
+      return Future.error(AppString.location_service_not_enabled);
     }
     locationPermission  = await Geolocator.checkPermission();
     if(locationPermission == LocationPermission.denied){
@@ -83,13 +83,13 @@ class _LoginState extends State<Login> {
         // Android's shouldShowRequestPermissionRationale
         // returned true. According to Android guidelines
         // your App should show an explanatory UI now.
-        return Future.error("Location Service are not Enabled");
+        return Future.error(AppString.location_service_not_enabled);
 
       }
     }
     if(locationPermission == LocationPermission.deniedForever){
       // Permissions are denied forever, handle appropriately.
-      return Future.error('Location permissions are permanently denied, we cannot request permissions.');
+      return Future.error(AppString.permission_denied_forever);
     }
     Position  position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     print("Printing Location Current Position $position");
